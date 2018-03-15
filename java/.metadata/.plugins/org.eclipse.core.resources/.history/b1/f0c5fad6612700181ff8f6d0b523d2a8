@@ -1,0 +1,37 @@
+
+public class Homework1 {
+
+	public static void task1(int bottom, int top, int difference) {
+		if (bottom > top)
+			System.out.println("wrong interval");
+		
+		char first;
+		String num;
+		int reverse;
+		
+		for (int i = bottom; i <= top; ++i) {
+			num = String.valueOf(i);
+			first = num.charAt(0);
+			reverse = Integer.parseInt(num.substring(1, num.length()) + first);
+
+			if ((reverse - i) > difference)
+				System.out.println(i);
+		}
+	}
+	
+	public static void task2(int n) {
+		for (int i = 1; i <= n; ++i) {
+			System.out.print(" " * i - 1);
+			for (int j = i; j <= n;	++j) {
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void main(String[] args) {
+		//task1(10, 10000, 5000);
+		task2(6);
+	}
+	
+}
