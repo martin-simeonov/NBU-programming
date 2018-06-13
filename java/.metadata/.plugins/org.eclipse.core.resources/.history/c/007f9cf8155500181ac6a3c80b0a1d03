@@ -1,0 +1,10 @@
+
+public class InsufficientQuantityOfGoodsException extends Exception {
+
+	public InsufficientQ
+	
+	public String toString() {
+		return "Insufficient quantity of this goods";
+	}
+	
+}

@@ -1,0 +1,8 @@
+
+public class Store {
+	private Goods goods;
+	private int goodsCount;
+	private String owner;
+	private List<Company> clients;
+	
+}

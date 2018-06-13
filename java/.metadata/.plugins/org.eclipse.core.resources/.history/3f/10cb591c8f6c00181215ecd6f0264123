@@ -1,0 +1,143 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MultipleSelectionModel;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.effect.Glow;
+import javafx.scene.effect.InnerShadow;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Scale;
+import javafx.stage.Stage;
+
+/**
+ *
+ * @author Kostadinova
+ */
+public class CITB406S2018Week13Task2 extends Application {
+
+	// изтриваш методите serialize и deserializes
+
+    @Override
+    public void start(Stage primaryStage) {
+
+        int hGap = 10;
+        int vGap = 10;
+        int prefferedWidth = 15;
+
+        // Root елемента го прави от FlowPane в GridPane
+        GridPane root = new GridPane();
+
+        root.setPadding(
+                new Insets(15));
+        root.setHgap(hGap);
+        root.setVgap(vGap);
+        
+        Label titleLabel = new Label("Enter data about the DanceClub: ");
+        // Всяко view му задаваш позицията в Grid с този метод
+        // първото е колоната, второто е реда
+        // Съответно тук заглавието е във втора колона на първи ред
+        GridPane.setConstraints(titleLabel, 1, 0);
+
+        Label nameLabel = new Label("Name: ");
+        GridPane.setConstraints(nameLabel, 0, 1);
+
+        TextField nameTextField = new TextField();
+        GridPane.setConstraints(nameTextField, 1, 1);
+
+        nameTextField.setPrefColumnCount(prefferedWidth);
+        nameTextField.setPromptText("Name");
+
+        // Махаш от всички полета FlowPane и HBox искаш да останат само
+        // Label, Button и TextField
+       /* HBox addressHBox = new HBox();
+        FlowPane addressFlowPane = new FlowPane();*/
+
+        Label dateLabel = new Label("Number of participants: ");
+        GridPane.setConstraints(dateLabel, 0, 2);
+        
+        TextField addressTextField = new TextField();
+        GridPane.setConstraints(addressTextField, 1, 2);
+
+        addressTextField.setPrefColumnCount(prefferedWidth);
+        addressTextField.setPromptText("Number of participants");
+
+        Label poolLabel = new Label("Is for Adults: ");
+        GridPane.setConstraints(poolLabel, 0, 3);
+        
+        RadioButton rbYes = new RadioButton("yes");
+        RadioButton rbNo = new RadioButton("no");
+
+        ToggleGroup tgKind = new ToggleGroup();
+        GridPane.setConstraints(rbYes, 1, 3);
+        GridPane.setConstraints(rbNo, 1, 4);
+        rbYes.setToggleGroup(tgKind);
+        rbNo.setToggleGroup(tgKind);
+
+        // С ImageView слагаш картинка до бутона или лейбъла, съответно
+        // навсякъде където има ImageView го изтриваш, защото за теста
+        // няма дадени картинки
+        // Button saveBtn = new Button("Save", new ImageView("save.png"));
+        // Тук save е текста съответно се сменя на каквото там е нужно за теста
+        Button saveBtn = new Button("Save DanceClub data");
+        // Това е методът който се изпълнява при натискане на бутон
+        saveBtn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            	// Тук съответно принтираш в конзолата
+            }
+        });
+        GridPane.setConstraints(saveBtn, 1, 4);
+        
+        // Тук се добавят всичките view-та към главния екран
+        // съответно като изтриеш някое(бутон например) го изтриваш и оттук
+        // сега като няма FlowPane и HBox трябва директно да добавим голите View-та
+        root.getChildren().addAll(titleLabel, nameLabel, nameTextField, dateLabel, 
+        		addressTextField, poolLabel, rbYes, rbNo, saveBtn);
+        Scene scene = new Scene(root, 360, 360);
+
+        primaryStage.setTitle("Dance Club Data!");
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+}
