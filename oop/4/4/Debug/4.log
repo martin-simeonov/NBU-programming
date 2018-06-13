@@ -1,0 +1,3 @@
+﻿  Company.cpp
+c:\users\marto\nbu_programming\oop\4\4\company.cpp(68): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  4.vcxproj -> C:\Users\Marto\nbu_programming\oop\4\Debug\4.exe

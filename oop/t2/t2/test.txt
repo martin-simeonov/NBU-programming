@@ -1,0 +1,25 @@
+Name: shop1
+Employee count: 1
+Goods count: 11
+Price: 1.5
+Shop area: 11
+Name: shop2
+Employee count: 2
+Goods count: 12
+Price: 2.5
+Shop area: 12
+Name: shop3
+Employee count: 3
+Goods count: 13
+Price: 3.5
+Shop area: 13
+Name: shop4
+Employee count: 4
+Goods count: 14
+Price: 4.5
+Shop area: 14
+Name: shop5
+Employee count: 5
+Goods count: 15
+Price: 5.5
+Shop area: 15
