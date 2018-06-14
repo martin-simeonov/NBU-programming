@@ -2,8 +2,9 @@
 #include "Vector.h"
 
 class Line : public virtual Vector {
-	Vector slope;
 	friend bool operator+(const Point&, const Line&);
+protected:
+	Vector slope;
 public:
 	Line(const Point&, const Vector&);
 	Line(const Point&, const Point&);

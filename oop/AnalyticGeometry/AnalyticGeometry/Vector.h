@@ -7,7 +7,7 @@ public:
 	Vector(double = 0.0, double = 0.0, double = 0.0);
 	Vector(const Point&, const Point&);
 
-	double length() const;
+	virtual double length() const;
 	virtual Vector direction() const;
 	Vector project(const Vector&) const;
 	Vector project(const Vector&, const Vector&) const;

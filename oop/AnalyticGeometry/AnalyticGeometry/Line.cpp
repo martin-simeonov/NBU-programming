@@ -48,7 +48,7 @@ bool Line::operator!=(const Line& l) const {
 }
 
 bool Line::operator|(const Line& l) const {
-	return slope.perpendicular(l.slope);
+	return distance(l) == 0 && slope.perpendicular(l.slope);
 }
 
 bool operator+(const Point& p, const Line& l) {
