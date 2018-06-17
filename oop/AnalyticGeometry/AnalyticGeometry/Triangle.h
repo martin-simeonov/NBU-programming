@@ -3,10 +3,11 @@
 #include "Vector.h"
 
 class Triangle : public virtual Point {
-	Point a, b, c;
-	Vector ab, ac, bc;
 	friend bool operator<(const Triangle&, const Point&);
 	friend bool operator==(const Triangle&, const Point&);
+protected:
+	Point a, b, c;
+	Vector ab, ac, bc;
 public:
 	Triangle();
 	Triangle(const Point&, const Point&, const Point&);
@@ -26,7 +27,7 @@ public:
 	bool isRight() const;
 	void triangleIs() const;
 	void triangleIs(std::ostream&) const;
-	double area() const;
+	virtual double area() const;
 	double perimeter() const;
 	Point centroid() const;
 

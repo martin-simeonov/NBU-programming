@@ -2,6 +2,7 @@
 #include "Line.h"
 #include "Segment.h"
 #include "Triangle.h"
+#include "Tetrahedron.h"
 #include "EqualPointException.h"
 #include <iostream>
 #include <fstream>
@@ -14,7 +15,8 @@ void printObjects() {
 		<< "2 – Вектор" << endl
 		<< "3 – Линия" << endl
 		<< "4 – Отсечка" << endl
-		<< "5 – Триъгълник" << endl;
+		<< "5 – Триъгълник" << endl
+		<< "6 - Тетраедър" << endl;
 }
 
 Element* createObject(int type) {
@@ -24,6 +26,7 @@ Element* createObject(int type) {
 	case 3: return new Line();
 	case 4: return new Segment();
 	case 5: return new Triangle();
+	case 6: return new Tetrahedron();
 	default: std::cout << "грешен избор" << std::endl;
 	}
 	return NULL;
@@ -32,8 +35,6 @@ Element* createObject(int type) {
 void driver(istream& in) {
 	bool prompt = false;
 	if (&in == &std::cin) prompt = true;
-
-	//prompt = true;
 
 	int choice;
 	char yesNo = 'n';	
