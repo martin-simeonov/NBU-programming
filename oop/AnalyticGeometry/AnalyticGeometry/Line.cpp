@@ -86,18 +86,28 @@ std::ostream& Line::ins(std::ostream& out) const {
 }
 
 std::istream& Line::out(std::istream& in) {
-	std::cout << "Моля въведете стойност x на точка:";
+	bool prompt = false;
+	if (&in == &std::cin) prompt = true;
+
+	if (prompt)
+		std::cout << "Моля въведете стойност x на точка:";
 	in >> x;
-	std::cout << "Моля въведете стойност y на точка:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на точка:";
 	in >> y;
-	std::cout << "Моля въведете стойност z на точка:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на точка:";
 	in >> z;
+
 	double vx, vy, vz;
-	std::cout << "Моля въведете стойност x на вектор:";
+	if (prompt)
+		std::cout << "Моля въведете стойност x на вектор:";
 	in >> vx;
-	std::cout << "Моля въведете стойност y на вектор:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на вектор:";
 	in >> vy;
-	std::cout << "Моля въведете стойност z на вектор:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на вектор:";
 	in >> vz;
 	slope = Vector(vx, vy, vz);
 	in.ignore();

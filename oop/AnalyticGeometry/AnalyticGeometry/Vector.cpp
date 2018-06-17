@@ -97,11 +97,17 @@ std::ostream& Vector::ins(std::ostream& out) const {
 }
 
 std::istream& Vector::out(std::istream& in) {
-	std::cout << "Моля въведете стойност x на вектора:";
+	bool prompt = false;
+	if (&in == &std::cin) prompt = true;
+
+	if (prompt)
+		std::cout << "Моля въведете стойност x на вектора:";
 	in >> x;
-	std::cout << "Моля въведете стойност y на вектора:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на вектора:";
 	in >> y;
-	std::cout << "Моля въведете стойност z на вектора:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на вектора:";
 	in >> z;
 	in.ignore();
 	return in;

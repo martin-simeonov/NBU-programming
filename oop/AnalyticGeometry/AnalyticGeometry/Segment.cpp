@@ -48,18 +48,28 @@ std::ostream& Segment::ins(std::ostream& out) const {
 }
 
 std::istream& Segment::out(std::istream& in) {
-	std::cout << "Моля въведете стойност x на точка 1:";
+	bool prompt = false;
+	if (&in == &std::cin) prompt = true;
+
+	if (prompt)
+		std::cout << "Моля въведете стойност x на точка 1:";
 	in >> x;
-	std::cout << "Моля въведете стойност y на точка 1:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на точка 1:";
 	in >> y;
-	std::cout << "Моля въведете стойност z на точка 1:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на точка 1:";
 	in >> z;
+
 	double vx, vy, vz;
-	std::cout << "Моля въведете стойност x на точка 2:";
+	if (prompt)
+		std::cout << "Моля въведете стойност x на точка 2:";
 	in >> vx;
-	std::cout << "Моля въведете стойност y на точка 2:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на точка 2:";
 	in >> vy;
-	std::cout << "Моля въведете стойност z на точка 2:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на точка 2:";
 	in >> vz;
 	slope = Vector(Point(x, y, z), Point(vx, vy, vz));
 	end = Vector(vx, vy, vz);

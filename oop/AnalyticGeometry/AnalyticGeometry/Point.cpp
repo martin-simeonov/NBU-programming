@@ -40,11 +40,17 @@ std::ostream& Point::ins(std::ostream& out) const {
 }
 
 std::istream& Point::out(std::istream& in) {
-	std::cout << "Моля въведете стойност x на точката:";
+	bool prompt = false;
+	if (&in == &std::cin) prompt = true;
+
+	if (prompt)
+		std::cout << "Моля въведете стойност x на точката:";
 	in >> x;
-	std::cout << "Моля въведете стойност y на точката:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на точката:";
 	in >> y;
-	std::cout << "Моля въведете стойност z на точката:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на точката:";
 	in >> z;
 	in.ignore();
 	return in;

@@ -130,25 +130,37 @@ std::istream& Triangle::out(std::istream& in) {
 	Point p1, p2, p3;
 	double px, py, pz;
 
-	std::cout << "Моля въведете стойност x на точка 1:";
+	bool prompt = false;
+	if (&in == &std::cin) prompt = true;
+
+	if (prompt)
+		std::cout << "Моля въведете стойност x на точка 1:";
 	in >> px;
-	std::cout << "Моля въведете стойност y на точка 1:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на точка 1:";
 	in >> py;
-	std::cout << "Моля въведете стойност z на точка 1:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на точка 1:";
 	in >> pz;
 	p1 = Point(px, py, pz);
-	std::cout << "Моля въведете стойност x на точка 2:";
+	if (prompt)
+		std::cout << "Моля въведете стойност x на точка 2:";
 	in >> px;
-	std::cout << "Моля въведете стойност y на точка 2:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на точка 2:";
 	in >> py;
-	std::cout << "Моля въведете стойност z на точка 2:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на точка 2:";
 	in >> pz;
 	p2 = Point(px, py, pz);
-	std::cout << "Моля въведете стойност x на точка 3:";
+	if (prompt)
+		std::cout << "Моля въведете стойност x на точка 3:";
 	in >> px;
-	std::cout << "Моля въведете стойност y на точка 3:";
+	if (prompt)
+		std::cout << "Моля въведете стойност y на точка 3:";
 	in >> py;
-	std::cout << "Моля въведете стойност z на точка 3:";
+	if (prompt)
+		std::cout << "Моля въведете стойност z на точка 3:";
 	in >> pz;
 	p3 = Point(px, py, pz);
 

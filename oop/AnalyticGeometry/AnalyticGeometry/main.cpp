@@ -4,6 +4,7 @@
 #include "Triangle.h"
 #include "EqualPointException.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 Element* e;
@@ -28,12 +29,12 @@ Element* createObject(int type) {
 	return NULL;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
 	locale::global(locale("Bulgarian"));
 
 	int choice;
 	char yesNo;
-	while (1) {
+	while (argc == 1) {
 		do {
 			printObjects();
 			cin >> choice;
@@ -69,5 +70,19 @@ int main() {
 		cin >> yesNo;
 		if (yesNo == 'n') break;
 	}
+
+	if (argc > 1) {
+		ifstream in(argv[1]);
+		if (!in) {
+			cerr << "Could not open file file.out" << endl;
+			return 3;
+		}
+
+		in >> choice;
+		e = createObject(choice);
+		in >> *e;
+		cout << *e << endl;
+	}
+
 	delete e;
 }
