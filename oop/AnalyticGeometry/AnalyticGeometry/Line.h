@@ -6,8 +6,12 @@ class Line : public virtual Vector {
 protected:
 	Vector slope;
 public:
+	Line();
 	Line(const Point&, const Vector&);
 	Line(const Point&, const Point&);
+	Line(const Line&);
+	virtual ~Line();
+	Line& operator=(const Line&);
 
 	virtual Vector direction() const;
 	Vector normal() const;

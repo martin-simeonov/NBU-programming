@@ -12,6 +12,20 @@ Vector::Vector(const Point& p1, const Point& p2)
 		p2.getZ() - p1.getZ())
 {}
 
+Vector::Vector(const Vector& other)
+	: Vector(other.x, other.y, other.z)
+{}
+
+Vector::~Vector()
+{}
+
+Vector& Vector::operator=(const Vector& other) {
+	this->x = other.x;
+	this->y = other.y;
+	this->z = other.z;
+	return *this;
+}
+
 double Vector::length() const {
 	return sqrt((x*x) + (y*y) + (z*z));
 }
@@ -84,5 +98,12 @@ std::ostream& Vector::ins(std::ostream& out) const {
 }
 
 std::istream& Vector::out(std::istream& in) {
+	std::cout << "Моля въведете стойност x на вектора:";
+	in >> x;
+	std::cout << "Моля въведете стойност y на вектора:";
+	in >> y;
+	std::cout << "Моля въведете стойност z на вектора:";
+	in >> z;
+	in.ignore();
 	return in;
 }

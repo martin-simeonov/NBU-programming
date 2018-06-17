@@ -7,15 +7,14 @@
 using namespace std;
 
 int main() {
-	Point p1(1, 0, 0);
-	Point p2(4, 0, 0);
-	Point p3(4, 2, 0);
-	Line l(p1, p3);
-	Segment s(p1, p3);
-	Triangle t(p1, p2, p3);
+	locale::global(locale("Bulgarian"));
+	
+	Triangle t;
+	cin >> t;
 
-	cout << l << endl;
-	cout << s << endl;
-	cout << t << endl;
-
+	Triangle t2(t);
+	Triangle t3;
+	t3 = t2;
+	cout << t2 << endl;
+	cout << t3 << endl;
 }

@@ -8,7 +8,11 @@ class Triangle : public virtual Point {
 	friend bool operator<(const Triangle&, const Point&);
 	friend bool operator==(const Triangle&, const Point&);
 public:
+	Triangle();
 	Triangle(const Point&, const Point&, const Point&);
+	Triangle(const Triangle&);
+	virtual ~Triangle();
+	Triangle& operator=(const Triangle&);
 
 	// Равнобедрен
 	bool isIsosceles() const;

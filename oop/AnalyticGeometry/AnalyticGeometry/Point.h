@@ -6,6 +6,9 @@ protected:
 	double x, y, z;
 public:
 	Point(double = 0.0, double = 0.0, double = 0.0);
+	Point(const Point&);
+	virtual ~Point();
+	Point& operator=(const Point&);
 
 	virtual double getX() const;
 	virtual double getY() const;

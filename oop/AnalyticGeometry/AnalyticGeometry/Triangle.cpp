@@ -2,6 +2,11 @@
 #include "Segment.h"
 #include "EqualPointException.h"
 
+Triangle::Triangle()
+	: a(Point()), b(Point()), c(Point()),
+	ab(Vector()), ac(Vector()), bc(Vector())
+{}
+
 Triangle::Triangle(const Point& a, const Point& b, const Point& c)
 	: a(a), b(b), c(c), ab(b, a), ac(a, c), bc(b, c)
 {
@@ -11,6 +16,23 @@ Triangle::Triangle(const Point& a, const Point& b, const Point& c)
 		throw EqualPointException("A", "C", a);
 	else if (b == c)
 		throw EqualPointException("B", "C", b);
+}
+
+Triangle::Triangle(const Triangle& other)
+	: Triangle(other.a, other.b, other.c)
+{}
+
+Triangle::~Triangle()
+{}
+
+Triangle & Triangle::operator=(const Triangle& other) {
+	this->a = other.a;
+	this->b = other.b;
+	this->c = other.c;
+	this->ab = other.ab;
+	this->ac = other.ac;
+	this->bc = other.bc;
+	return *this;
 }
 
 bool Triangle::isIsosceles() const {
@@ -93,5 +115,31 @@ std::ostream& Triangle::ins(std::ostream& out) const {
 }
 
 std::istream& Triangle::out(std::istream& in) {
+	double px, py, pz;
+	std::cout << "Моля въведете стойност x на точка 1:";
+	in >> px;
+	std::cout << "Моля въведете стойност y на точка 1:";
+	in >> py;
+	std::cout << "Моля въведете стойност z на точка 1:";
+	in >> pz;
+	a = Point(px, py, pz);
+	std::cout << "Моля въведете стойност x на точка 2:";
+	in >> px;
+	std::cout << "Моля въведете стойност y на точка 2:";
+	in >> py;
+	std::cout << "Моля въведете стойност z на точка 2:";
+	in >> pz;
+	b = Point(px, py, pz);
+	std::cout << "Моля въведете стойност x на точка 3:";
+	in >> px;
+	std::cout << "Моля въведете стойност y на точка 3:";
+	in >> py;
+	std::cout << "Моля въведете стойност z на точка 3:";
+	in >> pz;
+	c = Point(px, py, pz);
+	ab = Vector(a, b);
+	ac = Vector(a, c);
+	bc = Vector(b, c);
+	in.ignore();
 	return in;
 }

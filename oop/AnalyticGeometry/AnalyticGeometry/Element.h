@@ -3,6 +3,8 @@
 
 class Element {
 public:
+	virtual ~Element();
+
 	virtual std::ostream& ins(std::ostream&) const = 0;
 	virtual std::istream& out(std::istream&) = 0;
 };

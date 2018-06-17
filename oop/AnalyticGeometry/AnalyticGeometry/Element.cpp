@@ -7,3 +7,7 @@ std::ostream& operator<<(std::ostream& out, const Element& e) {
 std::istream& operator>>(std::istream& in, Element& e) {
 	return e.out(in);
 }
+
+Element::~Element()
+{
+}

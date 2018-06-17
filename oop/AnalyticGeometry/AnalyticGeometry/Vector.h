@@ -6,6 +6,9 @@ class Vector : public virtual Point {
 public:
 	Vector(double = 0.0, double = 0.0, double = 0.0);
 	Vector(const Point&, const Point&);
+	Vector(const Vector&);
+	virtual ~Vector();
+	Vector& operator=(const Vector&);
 
 	virtual double length() const;
 	virtual Vector direction() const;

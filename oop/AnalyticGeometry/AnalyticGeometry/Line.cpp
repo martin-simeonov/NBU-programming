@@ -1,5 +1,9 @@
 #include "Line.h"
 
+Line::Line()
+	: Line(Point(), Vector())
+{}
+
 Line::Line(const Point& p, const Vector& v) 
 	: Point(p.getX(), p.getY(), p.getZ()), slope(v)
 {}
@@ -7,6 +11,21 @@ Line::Line(const Point& p, const Vector& v)
 Line::Line(const Point& p1, const Point& p2)
 	: Line(p1, Vector(p1, p2))
 {}
+
+Line::Line(const Line& other)
+	: Line(Point(other.x, other.y, other.z), Vector(other.slope))
+{}
+
+Line::~Line()
+{}
+
+Line& Line::operator=(const Line& other) {
+	this->x = other.x;
+	this->y = other.y;
+	this->z = other.z;
+	this->slope = other.slope;
+	return *this;
+}
 
 Vector Line::direction() const {
 	return slope;
@@ -67,5 +86,20 @@ std::ostream& Line::ins(std::ostream& out ) const {
 }
 
 std::istream& Line::out(std::istream& in) {
+	std::cout << "Моля въведете стойност x на точка:";
+	in >> x;
+	std::cout << "Моля въведете стойност y на точка:";
+	in >> y;
+	std::cout << "Моля въведете стойност z на точка:";
+	in >> z;
+	double vx, vy, vz;
+	std::cout << "Моля въведете стойност x на вектор:";
+	in >> vx;
+	std::cout << "Моля въведете стойност y на вектор:";
+	in >> vy;
+	std::cout << "Моля въведете стойност z на вектор:";
+	in >> vz;
+	slope = Vector(vx, vy, vz);
+	in.ignore();
 	return in;
 }
