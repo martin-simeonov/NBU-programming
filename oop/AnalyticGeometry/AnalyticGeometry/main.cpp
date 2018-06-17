@@ -29,60 +29,77 @@ Element* createObject(int type) {
 	return NULL;
 }
 
-int main(int argc, char* argv[]) {
-	locale::global(locale("Bulgarian"));
+void driver(istream& in) {
+	bool prompt = false;
+	if (&in == &std::cin) prompt = true;
+
+	//prompt = true;
 
 	int choice;
-	char yesNo;
-	while (argc == 1) {
+	char yesNo = 'n';	
+
+	while (in) {
 		do {
-			printObjects();
-			cin >> choice;
+			if (prompt) printObjects();
+			in >> choice;
 			e = createObject(choice);
 		} while (e == NULL);
-		
+
 		try {
-			cin >> *e;
-		} catch (EqualPointException epe) {
+			in >> *e;
+		}
+		catch (EqualPointException epe) {
 			cerr << epe.what() << endl;
 			continue;
 		}
-		
+
 		do {
-			e->printMethods();
-			cin >> choice;
+			if (prompt) e->printMethods();
+			in >> choice;
 
 			try {
-				e->executeMethod(choice, cin, cout);
-			} catch (VectorLengthException& vle) {
+				e->executeMethod(choice, in, cout);
+			}
+			catch (VectorLengthException& vle) {
 				cerr << vle.what() << endl;
-			} catch (EqualPointException epe) {
+			}
+			catch (EqualPointException epe) {
 				cerr << epe.what() << endl;
-			} catch (exception e) {
+			}
+			catch (exception e) {
 				cerr << e.what() << endl;
 			}
-			
-			cout << "Желаете ли да изберете нова операция (y/n)?";
-			cin >> yesNo;
-		} while (yesNo == 'y');
 
-		cout << "Желаете ли да изберете нов геометричен обект(y/n)?";
-		cin >> yesNo;
-		if (yesNo == 'n') break;
-	}
+			if (prompt) {
+				cout << "Желаете ли да изберете нова операция (y/n)?";
+				in >> yesNo;
+			} else {
+				in.ignore();
+			}
+		} while (yesNo == 'y' && prompt);
 
-	if (argc > 1) {
-		ifstream in(argv[1]);
-		if (!in) {
-			cerr << "Could not open file file.out" << endl;
-			return 3;
+		if (prompt) {
+			cout << "Желаете ли да изберете нов геометричен обект(y/n)?";
+			in >> yesNo;
+			if (yesNo == 'n') break;
 		}
 
-		in >> choice;
-		e = createObject(choice);
-		in >> *e;
-		cout << *e << endl;
+		delete e;
 	}
+}
 
-	delete e;
+int main(int argc, char* argv[]) {
+	locale::global(locale("Bulgarian"));
+
+	if (argc == 1) {
+		driver(cin);
+	}
+	else {
+		ifstream in(argv[1]);
+		if (!in) {
+			cerr << "Could not open file" << endl;
+			return 3;
+		}
+		driver(in);
+	}
 }
