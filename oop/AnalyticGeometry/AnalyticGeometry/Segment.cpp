@@ -17,10 +17,12 @@ Segment::~Segment()
 {}
 
 Segment& Segment::operator=(const Segment& other) {
-	this->x = other.x;
-	this->y = other.y;
-	this->z = other.z;
-	this->end = other.end;
+	if (this != &other) {
+		this->x = other.x;
+		this->y = other.y;
+		this->z = other.z;
+		this->end = other.end;
+	}
 	return *this;
 }
 

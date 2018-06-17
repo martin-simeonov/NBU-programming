@@ -13,9 +13,11 @@ Point::~Point()
 }
 
 Point & Point::operator=(const Point& other) {
-	this->x = other.x;
-	this->y = other.y;
-	this->z = other.z;
+	if (this != &other) {
+		this->x = other.x;
+		this->y = other.y;
+		this->z = other.z;
+	}
 	return *this;
 }
 

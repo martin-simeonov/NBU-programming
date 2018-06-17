@@ -19,9 +19,11 @@ Vector::~Vector()
 {}
 
 Vector& Vector::operator=(const Vector& other) {
-	this->x = other.x;
-	this->y = other.y;
-	this->z = other.z;
+	if (this != &other) {
+		this->x = other.x;
+		this->y = other.y;
+		this->z = other.z;
+	}
 	return *this;
 }
 

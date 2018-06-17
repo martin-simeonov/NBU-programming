@@ -20,10 +20,12 @@ Line::~Line()
 {}
 
 Line& Line::operator=(const Line& other) {
-	this->x = other.x;
-	this->y = other.y;
-	this->z = other.z;
-	this->slope = other.slope;
+	if (this != &other) {
+		this->x = other.x;
+		this->y = other.y;
+		this->z = other.z;
+		this->slope = other.slope;
+	}
 	return *this;
 }
 

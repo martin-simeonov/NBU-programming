@@ -11,11 +11,11 @@ Triangle::Triangle(const Point& a, const Point& b, const Point& c)
 	: a(a), b(b), c(c), ab(b, a), ac(a, c), bc(b, c)
 {
 	if (a == b)
-		throw EqualPointException("A", "B", a);
+		throw EqualPointException(a);
 	else if (a == c)
-		throw EqualPointException("A", "C", a);
+		throw EqualPointException(a);
 	else if (b == c)
-		throw EqualPointException("B", "C", b);
+		throw EqualPointException(b);
 }
 
 Triangle::Triangle(const Triangle& other)
@@ -26,12 +26,14 @@ Triangle::~Triangle()
 {}
 
 Triangle & Triangle::operator=(const Triangle& other) {
-	this->a = other.a;
-	this->b = other.b;
-	this->c = other.c;
-	this->ab = other.ab;
-	this->ac = other.ac;
-	this->bc = other.bc;
+	if (this != &other) {
+		this->a = other.a;
+		this->b = other.b;
+		this->c = other.c;
+		this->ab = other.ab;
+		this->ac = other.ac;
+		this->bc = other.bc;
+	}
 	return *this;
 }
 

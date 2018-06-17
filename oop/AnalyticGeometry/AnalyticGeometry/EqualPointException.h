@@ -1,11 +1,13 @@
 #pragma once
 #include <exception>
-#include <string>
 #include "Point.h"
 
 class EqualPointException : public std::exception {
-	std::string message;
+	char* message;
 public:
-	EqualPointException(std::string, std::string, const Point&);
+	EqualPointException(const Point&);
+	EqualPointException(const EqualPointException&);
+	~EqualPointException();
+	EqualPointException& operator=(const EqualPointException&);
 	const char* what() const throw();
 };
