@@ -25,6 +25,9 @@ public:
 
 	virtual std::ostream& ins(std::ostream&) const;
 	virtual std::istream& out(std::istream&);
+
+	virtual void printMethods() const;
+	virtual void executeMethod(int, std::istream&, std::ostream&) const;
 };
 
 bool operator+(const Point&, const Line&);

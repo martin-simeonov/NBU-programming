@@ -1,5 +1,4 @@
 #include "Vector.h"
-#include "VectorLengthException.h"
 #include <cmath>
 
 Vector::Vector(double x, double y, double z)
@@ -32,12 +31,12 @@ double Vector::length() const {
 
 Vector Vector::direction() const {
 	double len = length();
-	if (isZero()) throw new VectorLengthException;
+	if (isZero()) throw VectorLengthException();
 	return Vector(x / len, y / len, z / len);
 }
 
 Vector Vector::project(const Vector& v) const {
-	if (v.isZero()) throw new VectorLengthException;
+	if (v.isZero()) throw VectorLengthException();
 	return ((*this * v) / (v.length() * v.length())) * v;
 }
 
@@ -50,12 +49,12 @@ bool Vector::isZero() const {
 }
 
 bool Vector::parallel(const Vector& v) const {
-	if (isZero() || v.isZero()) throw new VectorLengthException;
+	if (isZero() || v.isZero()) throw VectorLengthException();
 	return (x / v.x) == (y / v.y) && (y / v.y == z / v.z);
 }
 
 bool Vector::perpendicular(const Vector& v) const {
-	if (isZero() || v.isZero()) throw new VectorLengthException;
+	if (isZero() || v.isZero()) throw VectorLengthException();
 	return (*this * v) == 0;
 }
 
@@ -106,4 +105,73 @@ std::istream& Vector::out(std::istream& in) {
 	in >> z;
 	in.ignore();
 	return in;
+}
+
+void Vector::printMethods() const {
+	std::cout << "1 - изчисляване на дължина на вектор" << std::endl;
+	std::cout << "2 - изчисляване на посока на вектор" << std::endl;
+	std::cout << "3 - проекция на вектор върху друг вектор" << std::endl;
+	std::cout << "4 - проверка за нулев вектор" << std::endl;
+	std::cout << "5 - проверка за успоредност на два вектора" << std::endl;
+	std::cout << "6 - проверка за перпендикулярност на два вектора" << std::endl;
+	std::cout << "7 - събиране на два вектора" << std::endl;
+	std::cout << "8 - умножение на вектор с реално число" << std::endl;
+	std::cout << "9 - скаларно произведение на два вектора" << std::endl;
+	std::cout << "10 - векторно произведение на два вектора" << std::endl;
+	std::cout << "11 - смесено произведение на три вектора" << std::endl;
+}
+
+void Vector::executeMethod(int method, std::istream& in, std::ostream& out) const {
+	Vector v;
+	switch (method) {
+	case 1:
+		out << this->length() << std::endl;
+		break;
+	case 2:
+		out << this->direction() << std::endl;
+		break;
+	case 3:
+		in >> v;
+		out << this->project(v) << std::endl;
+		break;
+	case 4:
+		out << (this->isZero() ? "да" : "не") << std::endl;
+		break;
+	case 5:
+		in >> v;
+		out << (this->parallel(v) ? "да" : "не") << std::endl;
+		break;
+	case 6:
+		in >> v;
+		out << (this->perpendicular(v) ? "да" : "не") << std::endl;
+		break;
+	case 7:
+		in >> v;
+		out << *this + v << std::endl;
+		break;
+	case 8:
+		double r;
+		out << "Моля въведете реално число:";
+		in >> r;
+		out << *this * r << std::endl;
+		break;
+	case 9:
+		in >> v;
+		out << *this * v << std::endl;
+		break;
+	case 10:
+		in >> v;
+		out << (*this ^ v) << std::endl;
+		break;
+	case 11:
+	{
+		in >> v;
+		Vector v2;
+		in >> v2;
+		out << (*this)(v, v2) << std::endl;
+		break;
+	}
+	default:
+		out << "грешен избор" << std::endl;
+	}
 }

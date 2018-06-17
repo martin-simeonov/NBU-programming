@@ -24,12 +24,17 @@ public:
 	bool isObtuse() const;
 	// Правоъгълен
 	bool isRight() const;
+	void triangleIs() const;
+	void triangleIs(std::ostream&) const;
 	double area() const;
 	double perimeter() const;
 	Point centroid() const;
 
 	virtual std::ostream& ins(std::ostream&) const;
 	virtual std::istream& out(std::istream&);
+
+	virtual void printMethods() const;
+	virtual void executeMethod(int, std::istream&, std::ostream&) const;
 };
 
 bool operator<(const Triangle&, const Point&);

@@ -4,7 +4,7 @@ Line::Line()
 	: Line(Point(), Vector())
 {}
 
-Line::Line(const Point& p, const Vector& v) 
+Line::Line(const Point& p, const Vector& v)
 	: Point(p.getX(), p.getY(), p.getZ()), slope(v)
 {}
 
@@ -78,7 +78,7 @@ bool operator+(const Line& l, const Point& p) {
 	return p + l;
 }
 
-std::ostream& Line::ins(std::ostream& out ) const {
+std::ostream& Line::ins(std::ostream& out) const {
 	out << "x=" << x << "+" << slope.getX() << "t"
 		<< ", y=" << y << "+" << slope.getY() << "t"
 		<< ", z=" << z << "+" << slope.getZ() << "t";
@@ -102,4 +102,60 @@ std::istream& Line::out(std::istream& in) {
 	slope = Vector(vx, vy, vz);
 	in.ignore();
 	return in;
+}
+
+void Line::printMethods() const {
+	std::cout << "1 - посока на правата" << std::endl;
+	std::cout << "2 - нормален вектор" << std::endl;
+	std::cout << "3 - ъгъл между 2 прави" << std::endl;
+	std::cout << "4 - дали точката лежи върху правата" << std::endl;
+	std::cout << "5 - правата успоредна ли е на друга права" << std::endl;
+	std::cout << "6 - правата съвпада ли с друга права" << std::endl;
+	std::cout << "7 - правата пресича ли друга права" << std::endl;
+	std::cout << "8 - правата кръстосана ли е с друга права" << std::endl;
+	std::cout << "9 - правата перпендикулярна ли е на друга права" << std::endl;
+}
+
+void Line::executeMethod(int method, std::istream& in, std::ostream& out) const {
+	Line l;
+	Point p;
+
+	switch (method) {
+	case 1:
+		out << this->direction() << std::endl;
+		break;
+	case 2:
+		out << this->normal() << std::endl;
+		break;
+	case 3:
+		in >> l;
+		out << this->angle(l) << std::endl;
+		break;
+	case 4:
+		in >> p;
+		out << (*this + p ? "да" : "не") << std::endl;
+		break;
+	case 5:
+		in >> l;
+		out << (*this || l ? "да" : "не") << std::endl;
+		break;
+	case 6:
+		in >> l;
+		out << (*this == l ? "да" : "не") << std::endl;
+		break;
+	case 7:
+		in >> l;
+		out << (*this && l ? "да" : "не") << std::endl;
+		break;
+	case 8:
+		in >> l;
+		out << (*this != l ? "да" : "не") << std::endl;
+		break;
+	case 9:
+		in >> l;
+		out << (*this | l ? "да" : "не") << std::endl;
+		break;
+	default:
+		out << "грешен избор" << std::endl;
+	}
 }

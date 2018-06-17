@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include "VectorLengthException.h"
 
 class Vector : public virtual Point {
 	friend Vector operator*(const Vector&, double r);
@@ -27,7 +28,10 @@ public:
 
 	virtual std::ostream& ins(std::ostream&) const;
 	virtual std::istream& out(std::istream&);
+
+	virtual void printMethods() const;
+	virtual void executeMethod(int, std::istream&, std::ostream&) const;
 };
 
-Vector operator*(const Vector&, double r);
-Vector operator*(double r, const Vector&);
+Vector operator*(const Vector&, double);
+Vector operator*(double, const Vector&);

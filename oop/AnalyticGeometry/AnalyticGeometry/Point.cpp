@@ -49,3 +49,20 @@ std::istream& Point::out(std::istream& in) {
 	in.ignore();
 	return in;
 }
+
+void Point::printMethods() const {
+	std::cout << "1 - съвпадат ли две точки" << std::endl;
+}
+
+void Point::executeMethod(int method, std::istream& in, std::ostream& out) const {
+	switch (method) {
+	case 1:
+	{
+		Point p;
+		in >> p;
+		out << (this->operator==(p) ? "да" : "не") << std::endl;
+		break;
+	}
+	default: std::cout << "грешен избор" << std::endl;
+	}
+}
