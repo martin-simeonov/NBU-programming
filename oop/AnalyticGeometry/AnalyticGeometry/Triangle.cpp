@@ -86,3 +86,12 @@ bool operator==(const Triangle& t, const Point& p) {
 bool operator==(const Point& p, const Triangle& t) {
 	return t == p;
 }
+
+std::ostream& Triangle::ins(std::ostream& out) const {
+	out << "T(" << a << ", " << b << ", " << c << ")";
+	return out;
+}
+
+std::istream& Triangle::out(std::istream& in) const {
+	return in;
+}

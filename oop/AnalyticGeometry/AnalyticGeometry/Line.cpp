@@ -58,3 +58,14 @@ bool operator+(const Point& p, const Line& l) {
 bool operator+(const Line& l, const Point& p) {
 	return p + l;
 }
+
+std::ostream& Line::ins(std::ostream& out ) const {
+	out << "x=" << x << "+" << slope.getX() << "t"
+		<< ", y=" << y << "+" << slope.getY() << "t"
+		<< ", z=" << z << "+" << slope.getZ() << "t";
+	return out;
+}
+
+std::istream& Line::out(std::istream& in) const {
+	return in;
+}

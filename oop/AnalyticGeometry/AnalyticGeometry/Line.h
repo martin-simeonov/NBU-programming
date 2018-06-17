@@ -18,6 +18,9 @@ public:
 	bool operator&&(const Line&) const;
 	bool operator!=(const Line&) const;
 	bool operator|(const Line&) const;
+
+	virtual std::ostream& ins(std::ostream&) const;
+	virtual std::istream& out(std::istream&) const;
 };
 
 bool operator+(const Point&, const Line&);

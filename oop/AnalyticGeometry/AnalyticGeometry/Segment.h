@@ -10,4 +10,7 @@ public:
 	Point midpoint() const;
 
 	virtual bool operator==(const Point&) const;
+
+	virtual std::ostream& ins(std::ostream&) const;
+	virtual std::istream& out(std::istream&) const;
 };

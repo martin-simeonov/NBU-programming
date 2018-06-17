@@ -23,3 +23,9 @@ bool Point::operator==(const Point& other) const {
 std::ostream& Point::ins(std::ostream& out) const {
 	return out << "P(" << x << ", " << y << ", " << z << ")";
 }
+
+std::istream& Point::out(std::istream& in) const {
+	std::cout << "Моля въведете стойност x на вектора:";
+	//in >> x;
+	return in;
+}

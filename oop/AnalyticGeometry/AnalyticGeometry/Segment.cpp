@@ -1,4 +1,4 @@
-#include "Segment.h"
+﻿#include "Segment.h"
 
 Segment::Segment(const Point& p1, const Point& p2) 
 	: Point(p1), Line(p1, p2), end(p2)
@@ -19,4 +19,14 @@ Point Segment::midpoint() const {
 
 bool Segment::operator==(const Point& p) const {
 	return (Vector(Point(x, y, z), p) ^ Vector(end, p)).isZero();
+}
+
+std::ostream& Segment::ins(std::ostream& out) const {
+	Line::ins(out);
+	out << " t belongs [0, 1]";
+	return out;
+}
+
+std::istream& Segment::out(std::istream& in) const {
+	return in;
 }

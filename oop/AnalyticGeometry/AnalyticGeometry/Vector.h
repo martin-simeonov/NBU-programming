@@ -23,6 +23,7 @@ public:
 	double operator()(const Vector&, const Vector&) const;
 
 	virtual std::ostream& ins(std::ostream&) const;
+	virtual std::istream& out(std::istream&) const;
 };
 
 Vector operator*(const Vector&, double r);

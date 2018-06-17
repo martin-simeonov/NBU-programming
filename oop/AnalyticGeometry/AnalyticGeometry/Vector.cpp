@@ -82,3 +82,7 @@ double Vector::operator()(const Vector& v, const Vector& w) const {
 std::ostream& Vector::ins(std::ostream& out) const {
 	return out << "V(" << x << ", " << y << ", " << z << ")";
 }
+
+std::istream& Vector::out(std::istream& in) const {
+	return in;
+}
