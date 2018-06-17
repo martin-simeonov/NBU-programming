@@ -66,6 +66,6 @@ std::ostream& Line::ins(std::ostream& out ) const {
 	return out;
 }
 
-std::istream& Line::out(std::istream& in) const {
+std::istream& Line::out(std::istream& in) {
 	return in;
 }

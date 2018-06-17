@@ -27,6 +27,6 @@ std::ostream& Segment::ins(std::ostream& out) const {
 	return out;
 }
 
-std::istream& Segment::out(std::istream& in) const {
+std::istream& Segment::out(std::istream& in) {
 	return in;
 }

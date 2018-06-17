@@ -92,6 +92,6 @@ std::ostream& Triangle::ins(std::ostream& out) const {
 	return out;
 }
 
-std::istream& Triangle::out(std::istream& in) const {
+std::istream& Triangle::out(std::istream& in) {
 	return in;
 }

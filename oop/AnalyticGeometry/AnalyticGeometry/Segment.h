@@ -12,5 +12,5 @@ public:
 	virtual bool operator==(const Point&) const;
 
 	virtual std::ostream& ins(std::ostream&) const;
-	virtual std::istream& out(std::istream&) const;
+	virtual std::istream& out(std::istream&);
 };

@@ -25,7 +25,7 @@ public:
 	Point centroid() const;
 
 	virtual std::ostream& ins(std::ostream&) const;
-	virtual std::istream& out(std::istream&) const;
+	virtual std::istream& out(std::istream&);
 };
 
 bool operator<(const Triangle&, const Point&);

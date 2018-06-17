@@ -20,7 +20,7 @@ public:
 	bool operator|(const Line&) const;
 
 	virtual std::ostream& ins(std::ostream&) const;
-	virtual std::istream& out(std::istream&) const;
+	virtual std::istream& out(std::istream&);
 };
 
 bool operator+(const Point&, const Line&);

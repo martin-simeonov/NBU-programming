@@ -83,6 +83,6 @@ std::ostream& Vector::ins(std::ostream& out) const {
 	return out << "V(" << x << ", " << y << ", " << z << ")";
 }
 
-std::istream& Vector::out(std::istream& in) const {
+std::istream& Vector::out(std::istream& in) {
 	return in;
 }
