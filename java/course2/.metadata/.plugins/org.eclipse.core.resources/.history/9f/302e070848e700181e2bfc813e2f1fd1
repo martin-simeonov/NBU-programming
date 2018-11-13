@@ -1,0 +1,18 @@
+
+public class Tailor implements Runnable {
+
+	private String name;
+	private Workshop workshop;
+	private int clothCount;
+	
+	public Tailor(String name, Workshop workshop) {
+		this.name = name;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,19 @@
+
+public class Workshop {
+
+	private int clothes;
+	
+	public Workshop(int clothes) {
+		this.clothes = clothes;
+	}
+	
+	public boolean getCloth() {
+		if (clothes > 0) {
+			--clothes;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+}

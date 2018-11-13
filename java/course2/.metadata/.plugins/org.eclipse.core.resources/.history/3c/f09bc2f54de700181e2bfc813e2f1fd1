@@ -1,0 +1,15 @@
+
+public class MainClass {
+
+	public static void main(String args[]) {
+		Workshop w = new Workshop(10);
+		w.addTailor(new Tailor("Tailor 1", 100));
+		w.addTailor(new Tailor("Tailor 2", 100));
+		w.addTailor(new Tailor("Tailor 3", 100));
+		w.startWork();
+		w.printWork();
+		
+		System.out.println("Example with different efficiencies");
+	}
+	
+}

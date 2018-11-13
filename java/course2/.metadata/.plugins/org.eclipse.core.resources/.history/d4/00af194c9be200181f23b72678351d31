@@ -1,0 +1,10 @@
+
+public class PlasticGoods {
+
+	private String name;
+	private double price;
+	
+	public PlasticGoods(String name, double price) {
+		
+	}
+}

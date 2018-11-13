@@ -1,0 +1,15 @@
+
+public enum Sport {
+	FOOTBALL(11)
+	
+	private int teamCount;
+	private int mainTeamCount;
+	
+	public int getTeamCount() {
+		return teamCount;
+	}
+	
+	public int getMainTeamCount() {
+		return mainTeamCount;
+	}
+}

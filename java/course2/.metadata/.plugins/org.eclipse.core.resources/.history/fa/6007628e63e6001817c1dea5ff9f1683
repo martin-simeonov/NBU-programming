@@ -1,0 +1,18 @@
+import java.util.Map;
+
+public class Team {
+
+	private String name;
+	private double budget;
+	private Coach coach;
+	private Map<Player, Double> players;
+	private Sport sport;
+	
+	public Team(String name, double budget, Coach coach, Map<Player, Double> players, Sport sport) {
+		this.name = name;
+		this.budget = budget;
+		this.coach = coach;
+		this.sport = sport;
+	}
+	
+}

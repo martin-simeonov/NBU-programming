@@ -1,0 +1,22 @@
+
+public class Player {
+
+	private String name;
+	public Sport sport;
+	
+	public Player(String name, Sport sport) 
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Sport getSport() {
+		return sport;
+	}
+	public void setSport(Sport sport) {
+		this.sport = sport;
+	}
+	
+}

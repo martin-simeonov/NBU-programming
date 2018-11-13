@@ -1,0 +1,13 @@
+
+public class Workshop {
+
+	private int clothes;
+	
+	public boolean getCloth() {
+		if (clothes > 0) {
+			--clothes;
+		}
+			
+	}
+	
+}

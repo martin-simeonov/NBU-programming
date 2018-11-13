@@ -1,0 +1,4 @@
+
+public enum Sport {
+	FOOTBALL(11)
+}

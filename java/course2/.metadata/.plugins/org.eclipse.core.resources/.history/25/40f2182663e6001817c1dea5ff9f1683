@@ -1,0 +1,9 @@
+
+public class Team {
+
+	private String name;
+	private double budget;
+	private Coach coach;
+	private Map<Player, Double> players;
+	
+}

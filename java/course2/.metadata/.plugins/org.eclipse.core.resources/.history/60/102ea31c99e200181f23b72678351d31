@@ -1,0 +1,9 @@
+
+public class Checkpoint {
+
+	private String name;
+	private PriorityQueue<Vehicle> queue;
+	
+	public addVehicel
+	
+}

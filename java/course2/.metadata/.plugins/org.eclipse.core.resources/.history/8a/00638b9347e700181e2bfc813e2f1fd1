@@ -1,0 +1,10 @@
+
+public class Tailor {
+
+	public String name;
+	
+	public Tailor(String name) {
+		this.name = namel;
+	}
+	
+}

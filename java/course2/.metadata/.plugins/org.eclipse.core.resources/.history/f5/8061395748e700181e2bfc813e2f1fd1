@@ -1,0 +1,9 @@
+
+public class Workshop {
+
+	public boolean getCloth() {
+		if (clothes > 0)
+			--clothes
+	}
+	
+}

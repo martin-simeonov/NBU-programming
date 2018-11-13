@@ -1,0 +1,38 @@
+import java.util.Set;
+import java.util.TreeSet;
+
+public class PlasticGoodsManufacturer {
+
+	private String name;
+	private TreeSet<PlasticGoods> set;
+	
+	public PlasticGoodsManufacturer(String name){
+		this.name = name;
+		set = new TreeSet<PlasticGoods>();
+	}
+	
+	public void addGoods(PlasticGoods goods) {
+		set.add(goods);
+	}
+	
+	private double average() {
+		if (set.size() == 0) return 0.0;
+		
+		double sum = 0.0;
+		for (PlasticGoods pg : set) {
+			sum += pg.getPrice();
+		}
+		return sum /  set.size() - 1;
+	}
+	
+	public PlasticGoods closestToAverage() {
+		double average = average();
+		PlasticGoods t = new PlasticGoods(average);
+		PlasticGoods floor = set.floor(t);
+		PlasticGoods ceiling = set.ceiling(t);
+		
+		if (average - p1.getPrice() > p2.getPrice() - average) {
+			return p2;
+		} else if ()
+	}
+}

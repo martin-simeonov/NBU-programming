@@ -1,0 +1,28 @@
+import java.util.Set;
+import java.util.TreeSet;
+
+public class PlasticGoodsManufacturer {
+
+	private String name;
+	private TreeSet<PlasticGoods> set;
+	
+	public PlasticGoodsManufacturer(String name){
+		this.name = name;
+		set = new TreeSet<PlasticGoods>();
+	}
+	
+	public void addGoods(PlasticGoods goods) {
+		set.add(goods);
+	}
+	
+	private PlasticGoods average() {
+		double sum = 0.0;
+		for (PlasticGoods pg : set) {
+			sum += pg.getPrice();
+		}
+	}
+	
+	public PlasticGoods average() {
+		set.floo
+	}
+}

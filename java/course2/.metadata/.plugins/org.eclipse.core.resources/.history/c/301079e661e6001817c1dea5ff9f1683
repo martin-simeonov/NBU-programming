@@ -1,0 +1,8 @@
+
+public class Team {
+
+	public String name;
+	public double budget;
+	public 
+	
+}
