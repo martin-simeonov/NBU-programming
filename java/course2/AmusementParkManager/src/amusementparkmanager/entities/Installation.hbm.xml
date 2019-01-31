@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 16, 2019 3:49:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class catalog="amusement_park" name="amusementparkmanager.entities.Installation" optimistic-lock="version" table="installation">
+        <id name="installationId" type="java.lang.Integer">
+            <column name="installationId"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string">
+            <column length="45" name="name"/>
+        </property>
+        <property name="minAge" type="java.lang.Integer">
+            <column name="minAge"/>
+        </property>
+        <set name = "parks" cascade="save-update" table="park_installation">
+            <key column = "installationId"/>
+            <many-to-many column = "parkId" class="amusementparkmanager.entities.Park"/>
+        </set>
+    </class>
+</hibernate-mapping>

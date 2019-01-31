@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="450.0" stylesheets="@BootstrapTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amusementparkmanager.views.controllers.MainDocumentController">
+    <children>
+        <TabPane fx:id="tabs" layoutX="-6.0" layoutY="-5.0" prefHeight="350.0" prefWidth="456.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Увеселителен парк">
+                    <content>
+                        <fx:include fx:id="amusementParkTab" source="AmusementParkTab.fxml" />
+                    </content>
+                </Tab>
+                <Tab text="Съоръжения">
+                    <content>
+                        <fx:include fx:id="installationTab" source="InstallationTab.fxml" />
+                    </content>
+                </Tab>
+                <Tab text="Посетители">
+                    <content>
+                        <fx:include fx:id="visitorsTab" source="VisitorsTab.fxml" />
+                    </content>
+                </Tab>
+                <Tab text="Статистика">
+                    <content>
+                        <fx:include fx:id="statTab" source="StatTab.fxml" />
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

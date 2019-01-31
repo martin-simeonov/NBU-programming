@@ -1,7 +1,0 @@
-
-public class Vehicle {
-
-	int weight;
-	boolean emergencyVehicle;
-	
-}

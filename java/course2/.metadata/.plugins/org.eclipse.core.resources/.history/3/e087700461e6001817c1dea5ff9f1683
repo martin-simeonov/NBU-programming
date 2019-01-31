@@ -1,7 +1,0 @@
-
-public enum Sport {
-	FOOTBALL(11)
-	
-	private int teamCount;
-	private int mainTeamCount;
-}

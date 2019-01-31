@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<FlowPane id="FlowPane" fx:id="amusementParkTab" alignment="TOP_CENTER" columnHalignment="CENTER" layoutX="20.0" layoutY="20.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amusementparkmanager.views.controllers.InstallationTabController">
+    <stylesheets>
+        <URL value="@BootstrapTheme.css" />
+    </stylesheets>
+
+    <children>
+        <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER">
+            <children>
+                <TableView fx:id="installationTableView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="435.0" stylesheets="@../views/BootstrapTheme.css">
+                    <columns>
+                        <TableColumn fx:id="installationColumn" prefWidth="216.0" text="Тип съоръжение" />
+                        <TableColumn fx:id="minAgeColumn" prefWidth="215.0" text="Възраст за ползване" />
+                    </columns>
+                </TableView>
+            </children>
+        </FlowPane>
+        <FlowPane alignment="TOP_CENTER" prefHeight="121.0" prefWidth="400.0">
+            <children>
+                <GridPane hgap="10.0" prefHeight="110.0" prefWidth="335.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="199.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Тип съоръжение" />
+                        <Label text="Възраст за ползване" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#saveInstallation" text="Запиши данните" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="installationTextField" GridPane.columnIndex="1">
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="minAgeTextField" layoutX="117.0" layoutY="19.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                    <padding>
+                        <Insets top="20.0" />
+                    </padding>
+                </GridPane>
+            </children>
+        </FlowPane>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</FlowPane>

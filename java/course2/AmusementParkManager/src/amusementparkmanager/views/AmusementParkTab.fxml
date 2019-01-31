@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amusementparkmanager.views.controllers.AmusementParkTabController">
+   <children>
+      <Button layoutX="346.0" layoutY="10.0" mnemonicParsing="false" onAction="#createAmusementPark" text="Създай нов" />
+      <Label layoutX="14.0" layoutY="14.0" text="Избери увеселителен парк:" />
+      <ComboBox fx:id="parkSelect" layoutX="180.0" layoutY="10.0" prefWidth="150.0" />
+      <ListView fx:id="installationList" layoutX="14.0" layoutY="101.0" prefHeight="200.0" prefWidth="316.0" />
+      <Label layoutX="14.0" layoutY="84.0" text="Съоръжения:" />
+      <HBox layoutX="14.0" layoutY="53.0" prefHeight="17.0" prefWidth="408.0" spacing="10.0">
+         <children>
+            <Label text="Мениджър:" />
+            <Label fx:id="managerName" prefHeight="17.0" prefWidth="132.0" text="Label" />
+            <Label text="Заплата:" />
+            <Label fx:id="managerSalary" prefHeight="17.0" prefWidth="95.0" text="Label" />
+         </children>
+      </HBox>
+      <VBox layoutX="336.0" layoutY="101.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+         <children>
+            <Label text="Приходи:" />
+            <Label fx:id="income" text="Label" />
+            <Label prefHeight="40.0" prefWidth="100.0" text="Средна възраст на посетителите:" wrapText="true" />
+            <Label fx:id="averageAge" text="Label" />
+            <Button mnemonicParsing="false" onAction="#refresh" text="Обнови">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

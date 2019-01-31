@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 16, 2019 3:49:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="amusementparkmanager.entities.Park" table="park" catalog="amusement_park" optimistic-lock="version">
+        <id name="parkId" type="java.lang.Integer">
+            <column name="parkId" />
+            <generator class="identity" />
+        </id>
+        <set name = "installations" cascade="save-update" table="park_installation" lazy="false" fetch="join">
+            <key column = "parkId"/>
+            <many-to-many column = "installationId" class="amusementparkmanager.entities.Installation"/>
+        </set>
+        <bag name = "visitors" cascade="merge" table="park_child" lazy="false" fetch="select">
+            <key column = "parkId"/>
+            <many-to-many column = "childId" class="amusementparkmanager.entities.Child"/>
+        </bag>
+        <many-to-one name="manager" class="amusementparkmanager.entities.Manager" lazy="false" fetch="join">
+            <column name="manager" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="saleThreshold" type="java.lang.Double">
+            <column name="saleThreshold" precision="22" scale="0" />
+        </property>
+        <property name="salaryIncrease" type="java.lang.Integer">
+            <column name="salaryIncrease" />
+        </property>
+        <property name="ticketPrice" type="java.lang.Double">
+            <column name="ticketPrice" />
+        </property>
+    </class>
+</hibernate-mapping>

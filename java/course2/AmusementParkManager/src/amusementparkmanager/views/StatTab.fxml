@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="456.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amusementparkmanager.views.controllers.StatTabController">
+    <stylesheets>
+        <URL value="@BootstrapTheme.css" />
+    </stylesheets>
+    <children>
+        <GridPane hgap="10.0" layoutX="96.0" layoutY="60.0" prefHeight="194.0" prefWidth="330.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="133.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="0.0" prefWidth="162.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="97.0" minHeight="0.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Общ приход от билети на увселителните паркове:" wrapText="true" />
+                <Label text="Средна възраст на децата посетили парковете:" wrapText="true" GridPane.rowIndex="1" />
+                <Label fx:id="income" text="Label" GridPane.columnIndex="1">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="averageAge" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Button mnemonicParsing="false" onAction="#refresh" text="Обнови" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
