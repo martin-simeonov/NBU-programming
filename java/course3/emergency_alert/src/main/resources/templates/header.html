@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:fragment="head">
+<meta charset="utf-8" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+
+<title>Alert emergency</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light"
+		th:fragment="navigation">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+					class="nav-link" th:href="@{/admin}">Employees</a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+					class="nav-link" th:href="@{/admin/statistics}">Statistics</a></li>
+				<li sec:authorize="hasRole('ROLE_USER')" class="nav-item"><a
+					class="nav-link" th:href="@{/emergency}">Home</a>
+				<li sec:authorize="hasRole('ROLE_EMPLOYEE')" class="nav-item"><a
+					class="nav-link" th:href="@{/emergencyEmployee}">Home</a>
+				<li sec:authorize="isAuthenticated()" class="nav-item"><a
+					class="nav-link" th:href="@{/logout}">Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

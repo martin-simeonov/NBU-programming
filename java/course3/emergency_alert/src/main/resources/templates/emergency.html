@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: head"></head>
+<body>
+	<nav th:replace="header :: navigation"></nav>
+	<div class="container">
+		<p>
+			<a href="/addEmergency" th:href="@{/addEmergency}">Alert
+				emergency</a>
+		</p>
+		<div th:if="${emergencies != null && !emergencies.isEmpty()}">
+			<table class="table table-hover">
+				<thead>
+					<th>Address</th>
+					<th>Description</th>
+					<th>Time</th>
+					<th>Resolved</th>
+				</thead>
+				<tr th:each="emergency : ${emergencies}">
+					<td th:text="${emergency.address}"></td>
+					<td th:text="${emergency.description}"></td>
+					<td
+						th:text="${#dates.format(emergency.incomeTime, 'dd-MM-yyyy HH:mm:SS')}"></td>
+					<td th:if="${emergency.resolveTime != null}"
+						class="bg-success text-white">Resolved</td>
+					<td th:if="${emergency.resolveTime == null}"
+						class="bg-danger text-white">Unresolved</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
