@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="header :: head"></head>
+<body>
+<nav th:replace="header :: navigation"></nav>
+<div class="container">
+    <p>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/registrationShop" th:href="@{/registrationShop}">Add Shop</a>
+    </p>
+    <div th:if="${shops != null && !shops.isEmpty()}">
+
+        <table class="table table-hover">
+            <thead>
+            <th>Shop name</th>
+            <th sec:authorize="hasRole('ROLE_USER')">Time</th>
+            <th sec:authorize="hasRole('ROLE_ADMIN')">Action</th>
+            </thead>
+            <tr th:each="shop : ${shops}">
+                <td th:text="${shop.firstName}"></td>
+                <td sec:authorize="hasRole('ROLE_USER')">
+                    <form th:action="@{/car/save_repair}" th:object="${repair}" method="post">
+                        <div class="form-group">
+                            <label for="dateTime">Date</label>
+                            <input type="datetime-local" class="form-control" id="dateTime"
+                                   th:value="${{dateTime}}" th:field="*{dateTime}"/>
+                        </div>
+                        <input type="text" th:name="shopId" th:id="shopId" th:value="${{shop.id}}" style="display:none;"/>
+                        <input type="text" th:field="*{carId}" style="display:none;"/>
+                        <input type="text" th:field="*{jobType}" style="display:none;"/>
+                        <button type="submit" class="btn btn-primary">Schedule</button>
+                    </form>
+                </td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-danger"
+                       th:href="@{'/admin/delete/'+${shop.id}}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

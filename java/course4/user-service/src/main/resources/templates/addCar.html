@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: head"></head>
+<body>
+	<nav th:replace="header :: navigation"></nav>
+	<div class="container">
+		<div class="col-6">
+			<form action="#" th:action="@{/addCar}"
+				th:object="${car}" method="post">
+				<div class="form-group"
+					th:classappend="${#fields.hasErrors('make')}? 'has-error':''">
+					<label for="make" class="control-label">Make</label> <input
+						id="make" class="form-control" th:field="*{make}" />
+					<p class="error-message"
+						th:each="error: ${#fields.errors('make')}" th:text="${error}">Validation
+						error</p>
+				</div>
+				<div class="form-group"
+					th:classappend="${#fields.hasErrors('model')}? 'has-error':''">
+					<label for="model" class="control-label">Model</label>
+					<textarea id="model" class="form-control" th:field="*{model}"></textarea>
+					<p class="error-message"
+						th:each="error : ${#fields.errors('model')}" th:text="${error}">Validation
+						error</p>
+				</div>
+				<div class="form-group"
+					 th:classappend="${#fields.hasErrors('year')}? 'has-error':''">
+					<label for="year" class="control-label">Year</label>
+					<textarea id="year" class="form-control" th:field="*{year}"></textarea>
+					<p class="error-message"
+					   th:each="error : ${#fields.errors('year')}" th:text="${error}">Validation
+						error</p>
+				</div>
+				<div class="form-group"
+					 th:classappend="${#fields.hasErrors('registration')}? 'has-error':''">
+					<label for="model" class="control-label">Registration</label>
+					<textarea id="registration" class="form-control" th:field="*{registration}"></textarea>
+					<p class="error-message"
+					   th:each="error : ${#fields.errors('registration')}" th:text="${error}">Validation
+						error</p>
+				</div>
+				<button type="submit" class="btn btn-primary">Add</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

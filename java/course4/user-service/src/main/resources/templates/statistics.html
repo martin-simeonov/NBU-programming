@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: head"></head>
+<body>
+<nav th:replace="header :: navigation"></nav>
+<div class="container">
+    <h3>Total by service type</h3>
+    <table class="table table-hover">
+        <thead>
+        <th>Service type</th>
+        <th>Count</th>
+        </thead>
+        <tr th:each="instance  : ${statistics.countBySkill}">
+            <td th:text="${instance.key}"></td>
+            <td th:text="${instance.value}"></td>
+        </tr>
+    </table>
+    <h3>Total by make</h3>
+    <table class="table table-hover">
+        <thead>
+        <th>Make</th>
+        <th>Count</th>
+        </thead>
+        <tr th:each="instance  : ${statistics.countByMake}">
+            <td th:text="${instance.key}"></td>
+            <td th:text="${instance.value}"></td>
+        </tr>
+    </table>
+    <h3>Total by year</h3>
+    <table class="table table-hover">
+        <thead>
+        <th>Year</th>
+        <th>Count</th>
+        </thead>
+        <tr th:each="instance  : ${statistics.countByYear}">
+            <td th:text="${instance.key}"></td>
+            <td th:text="${instance.value}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

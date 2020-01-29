@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="header :: head"></head>
+<body>
+<nav th:replace="header :: navigation"></nav>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <th>Car</th>
+        <th>Shop</th>
+        <th>Job Type</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th sec:authorize="hasRole('ROLE_WORKER')">Action</th>
+        </thead>
+        <tr th:each="repair : ${repairs}">
+            <td th:text="${repair.car.make + ' ' + repair.car.model + ' ' + repair.car.registration}"></td>
+            <td th:text="${repair.shop.firstName}"></td>
+            <td th:text="${repair.jobType}"></td>
+            <td th:text="${repair.dateTime}"></td>
+            <td th:text="${repair.description}"></td>
+            <td th:text="${repair.price}"></td>
+            <td th:if="${repair.pending == true}"
+                class="bg-danger text-white">Pending
+            </td>
+            <td th:if="${repair.pending == false}"
+                class="bg-success text-white">Done
+            </td>
+            <td sec:authorize="hasRole('ROLE_WORKER')" th:if="${repair.pending == true}">
+                <a th:href="@{'/worker/repair/'+${repair.id}}" class="btn btn-danger">Repair</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: head"></head>
+<body>
+<nav th:replace="header :: navigation"></nav>
+<div class="container">
+	<div class="col-6">
+		<h2>Choose type of service</h2>
+		<form action="#" th:action="@{'/car/schedule_repair/'+${id}}" th:object="${serviceType}" method="post">
+			<div class="col-12">
+				<select class="form-control" id="skill" name="skill" th:field="*{skills}">
+					<option th:each="skill : ${skills}"
+							th:value="${skill}"
+							th:text="${skill}"></option>
+				</select>
+				</br>
+				<button type="submit" class="btn btn-primary">Choose</button>
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
